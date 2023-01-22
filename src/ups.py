@@ -44,7 +44,7 @@ def read_status(clear_fault=False):
         
         if ENABLE_UDP:
             try:
-                UDPClientSocket.sendto(json.dumps(status,indent=4,sort_keys=True), serverAddressPort)
+                UDPClientSocket.sendto(json.dumps(status,indent=4,sort_keys=True).encode('utf-8'), serverAddressPort)
             except Exception as ex:
                 logging.error(ex)
         
